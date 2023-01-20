@@ -1,25 +1,35 @@
 #include "sort.h"
-
 /**
- * bubble_sort - Sort algorithm in an acending order
- * @array : container to sort
- * @size : Size of container
- * Return : Nothing
+By Rose and Emma @ALX 2022
+*/
+/**
+ * bubble_sort - Sort an array of integers in ascending ordeer
+ * @array: An array of integers to sort
+ * @size: The size of the array
+ * Return: Void
  */
+
 void bubble_sort(int *array, size_t size)
 {
-size_t n, i, temp;
-for (n = 0; n <= size - 1; n++)
-{
-for (i = 0; i < size - n - 1; i++)
-{
-if (array[i] >  array[i + 1])
-{
-temp = array[i];
-array[i] = array[i + 1];
-array[i + 1] = temp;
-print_array(array, size);
-}
-}
-}
+	int swap, swapped;
+	size_t i;
+
+	if (array == NULL || size < 2)
+		return;
+
+	while (swapped)
+	{
+		swapped = 0;
+		for (i = 0; i < size - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				swapped = 1;
+				swap = array[i + 1];
+				array[i + 1] = array[i];
+				array[i] = swap;
+				print_array(array, size);
+			}
+		}
+	}
 }
